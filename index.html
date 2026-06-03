@@ -253,6 +253,20 @@
     color: var(--ink-muted);
   }
 
+
+   /* ABOUT */
+    #about{background:#fff}
+    .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start}
+    .about-text p{color:var(--text2);line-height:1.85;font-size:1rem;margin-bottom:1.1rem}
+    .about-text p strong{color:var(--text);font-weight:600}
+    .info-cards{display:flex;flex-direction:column;gap:.75rem}
+    .info-card{display:flex;align-items:center;gap:1rem;padding:.9rem 1.1rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;transition:all .2s}
+    .info-card:hover{border-color:var(--accent);background:var(--bg3);transform:translateX(4px)}
+    .info-card-icon{font-size:1.1rem;width:36px;height:36px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.08);flex-shrink:0}
+    .info-card-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:600}
+    .info-card-val{font-size:.9rem;color:var(--text);font-weight:500}
+    .info-card-val a{color:var(--accent);text-decoration:none}
+
   /* ── SECTION BASE ── */
   section { padding: 6rem 5%; }
   .section-label {
@@ -660,6 +674,32 @@
     </div>
   </div>
 </section>
+
+  <!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">Who I Am</div>
+      <h2 class="section-title">About Me</h2>
+      <p class="section-sub">A passionate SEO professional with a technical background and a creative approach to digital marketing.</p>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I'm <strong>Mamit Pradhan</strong>, an SEO Specialist and Digital Marketer based in Kathmandu, Nepal — currently working at <strong>Meta Cloud Solutions Pvt. Ltd</strong> and pursuing my <strong>MSc. in Computer Science</strong> at NCIT.</p>
+        <p>I specialise in transforming websites into organic traffic engines through technical SEO audits, strategic keyword research, and content-driven optimization. My background in UI/UX design gives me a unique edge in understanding the full user journey — from search to conversion.</p>
+        <p>Whether it's climbing rankings, building quality backlinks, or crafting content that converts — I bring data and creativity together to deliver real results.</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card"><div class="info-card-icon">📍</div><div><div class="info-card-label">Location</div><div class="info-card-val">Hattiban, Lalitpur, Nepal</div></div></div>
+        <div class="info-card"><div class="info-card-icon">📧</div><div><div class="info-card-label">Email</div><div class="info-card-val"><a href="mailto:mamitp34@gmail.com">mamitp34@gmail.com</a></div></div></div>
+        <div class="info-card"><div class="info-card-icon">📞</div><div><div class="info-card-label">Phone</div><div class="info-card-val"><a href="tel:+9779818350020">+977-9818350020</a></div></div></div>
+        <div class="info-card"><div class="info-card-icon">💼</div><div><div class="info-card-label">LinkedIn</div><div class="info-card-val"><a href="https://www.linkedin.com/in/mamit-pradhan-68294a393" target="_blank" rel="noopener">mamit-pradhan-68294a393</a></div></div></div>
+        <div class="info-card"><div class="info-card-icon">🎓</div><div><div class="info-card-label">Current Study</div><div class="info-card-val">MSc. Computer Science, NCIT</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- EXPERIENCE -->
 <section id="experience">
