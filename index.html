@@ -253,24 +253,27 @@
     color: var(--ink-muted);
   }
 
-
- /* ── ABOUT ── */
+  /* ── ABOUT ── */
 #about {
   background: var(--white);
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 4rem;
   align-items: start;
 }
 
+.about-text {
+  max-width: 650px;
+}
+
 .about-text p {
   color: var(--ink-soft);
-  line-height: 1.9;
   font-size: 1rem;
-  margin-bottom: 1.2rem;
+  line-height: 1.9;
+  margin-bottom: 1.4rem;
 }
 
 .about-text p strong {
@@ -292,46 +295,48 @@
   background: var(--off-white);
   border: 1px solid var(--border);
   border-radius: 4px;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
 }
 
 .info-card:hover {
   border-color: var(--gold);
-  box-shadow: 0 8px 32px rgba(201,168,76,0.12);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.12);
   transform: translateY(-4px);
 }
 
 .info-card-icon {
   width: 44px;
   height: 44px;
-  background: var(--gold-pale);
+  flex-shrink: 0;
   border-radius: 50%;
+  background: var(--gold-pale);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
+  font-size: 1.15rem;
+  color: var(--gold);
 }
 
 .info-card-label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   color: var(--ink-soft);
   font-weight: 600;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .info-card-val {
   font-size: 0.95rem;
   color: var(--ink);
   font-weight: 500;
+  line-height: 1.5;
 }
 
 .info-card-val a {
   color: var(--gold);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.3s ease;
 }
 
 .info-card-val a:hover {
@@ -344,7 +349,12 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
+  .about-text {
+    max-width: 100%;
+  }
 }
+
 
   /* ── SECTION BASE ── */
   section { padding: 6rem 5%; }
