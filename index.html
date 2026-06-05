@@ -18,660 +18,289 @@
     --ink-muted: #7A7A7A;
     --border: #E8E0CC;
   }
-
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--white);
-    color: var(--ink);
-    overflow-x: hidden;
-  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
 
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.2rem 5%;
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     transition: box-shadow 0.3s;
   }
   nav.scrolled { box-shadow: 0 2px 24px rgba(201,168,76,0.10); }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: 0.02em;
-  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
   .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
   .nav-links a {
-    font-size: 0.82rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-    position: relative;
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft); text-decoration: none; font-weight: 500;
+    transition: color 0.2s; position: relative;
   }
   .nav-links a::after {
-    content: '';
-    position: absolute; bottom: -3px; left: 0; right: 0; height: 1px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transition: transform 0.25s;
+    content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px;
+    background: var(--gold); transform: scaleX(0); transition: transform 0.25s;
   }
   .nav-links a:hover { color: var(--gold-dark); }
   .nav-links a:hover::after { transform: scaleX(1); }
   .nav-hire {
-    padding: 0.55rem 1.4rem;
-    background: var(--gold);
-    color: var(--white) !important;
-    border-radius: 2px;
-    font-size: 0.78rem !important;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600 !important;
-    text-decoration: none;
+    padding: 0.55rem 1.4rem; background: var(--gold); color: var(--white) !important;
+    border-radius: 2px; font-size: 0.78rem !important; letter-spacing: 0.14em;
+    text-transform: uppercase; font-weight: 600 !important; text-decoration: none;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
     box-shadow: 0 3px 12px rgba(201,168,76,0.3);
   }
   .nav-hire::after { display: none !important; }
-  .nav-hire:hover {
-    background: var(--gold-dark) !important;
-    color: var(--white) !important;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(201,168,76,0.4) !important;
-  }
+  .nav-hire:hover { background: var(--gold-dark) !important; color: var(--white) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,168,76,0.4) !important; }
 
   /* ── HERO ── */
   #hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 7rem 5% 4rem;
-    gap: 4rem;
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 7rem 5% 4rem; gap: 4rem;
+    position: relative; overflow: hidden;
   }
   #hero::before {
-    content: '';
-    position: absolute; top: -100px; right: -100px;
+    content: ''; position: absolute; top: -100px; right: -100px;
     width: 600px; height: 600px;
     background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
   #hero::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
   .hero-text { animation: fadeUp 0.9s ease both; }
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 0.75rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 1.5rem;
   }
-  .hero-eyebrow::before {
-    content: '';
-    width: 32px; height: 1px;
-    background: var(--gold);
-  }
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 900;
-    line-height: 1.05;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-  }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.05; color: var(--ink); margin-bottom: 0.5rem; }
   .hero-name .gold { color: var(--gold); }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--ink-soft);
-    margin-bottom: 2rem;
-    letter-spacing: 0.03em;
-  }
-  .hero-desc {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--ink-muted);
-    max-width: 480px;
-    margin-bottom: 2.8rem;
-  }
-  .hero-cta {
-    display: flex; gap: 1.2rem; flex-wrap: wrap;
-  }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; font-style: italic; color: var(--ink-soft); margin-bottom: 2rem; letter-spacing: 0.03em; }
+  .hero-desc { font-size: 1rem; line-height: 1.8; color: var(--ink-muted); max-width: 480px; margin-bottom: 2.8rem; }
+  .hero-cta { display: flex; gap: 1.2rem; flex-wrap: wrap; }
   .btn-primary {
-    padding: 0.85rem 2.2rem;
-    background: var(--gold);
-    color: var(--white);
-    border: none; border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
+    padding: 0.85rem 2.2rem; background: var(--gold); color: var(--white);
+    border: none; border-radius: 2px; font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+    text-decoration: none; cursor: pointer;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 16px rgba(201,168,76,0.25);
   }
-  .btn-primary:hover {
-    background: var(--gold-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(201,168,76,0.35);
-  }
+  .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.35); }
   .btn-secondary {
-    padding: 0.85rem 2.2rem;
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
+    padding: 0.85rem 2.2rem; background: transparent; color: var(--ink);
+    border: 1px solid var(--border); border-radius: 2px; font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+    text-decoration: none; cursor: pointer; transition: border-color 0.2s, color 0.2s;
   }
   .btn-secondary:hover { border-color: var(--gold); color: var(--gold-dark); }
-
-  .hero-image-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeUp 0.9s 0.2s ease both;
-  }
-  .photo-frame {
-    position: relative;
-    width: 340px; height: 420px;
-  }
+  .hero-image-wrap { display: flex; justify-content: center; align-items: center; animation: fadeUp 0.9s 0.2s ease both; }
+  .photo-frame { position: relative; width: 340px; height: 420px; }
   .photo-frame::before {
-    content: '';
-    position: absolute;
-    top: 18px; left: 18px;
-    right: -18px; bottom: -18px;
-    border: 2px solid var(--gold);
-    border-radius: 4px;
-    z-index: 0;
+    content: ''; position: absolute; top: 18px; left: 18px; right: -18px; bottom: -18px;
+    border: 2px solid var(--gold); border-radius: 4px; z-index: 0;
   }
   .photo-frame img, .photo-placeholder {
-    position: relative; z-index: 1;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-    display: block;
+    position: relative; z-index: 1; width: 100%; height: 100%;
+    object-fit: cover; border-radius: 4px; display: block;
   }
   .photo-placeholder {
-    background: var(--gold-pale);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    color: var(--gold-dark);
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 500;
+    background: var(--gold-pale); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.8rem;
+    color: var(--gold-dark); font-size: 0.8rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 500;
   }
-  .photo-placeholder svg { opacity: 0.5; }
-  .hero-stats {
-    display: flex; gap: 2.5rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold);
-    display: block;
-  }
-  .stat-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-  }
-
-/* ── ABOUT SECTION ── */
-#about {
-  background: #fff;
-}
-
-/* Grid Layout */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 5rem;
-  align-items: start;
-}
-
-/* About Text */
-.about-text p {
-  color: var(--text2);
-  line-height: 1.85;
-  font-size: 1rem;
-  margin-bottom: 1.1rem;
-}
-
-.about-text p strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
-/* Info Cards Wrapper */
-.info-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-/* Info Card */
-.info-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1.1rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  transition: all 0.2s ease;
-}
-
-/* Hover Effect */
-.info-card:hover {
-  border-color: var(--accent);
-  background: var(--bg3);
-  transform: translateX(4px);
-}
-
-/* Icon Box */
-.info-card-icon {
-  font-size: 1.1rem;
-  width: 36px;
-  height: 36px;
-  background: #fff;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  flex-shrink: 0;
-}
-
-/* Label Text */
-.info-card-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text3);
-  font-weight: 600;
-}
-
-/* Value Text */
-.info-card-val {
-  font-size: 0.9rem;
-  color: var(--text);
-  font-weight: 500;
-}
-
-/* Link Style */
-.info-card-val a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); display: block; }
+  .stat-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); }
 
   /* ── SECTION BASE ── */
   section { padding: 6rem 5%; }
   .section-label {
     display: inline-flex; align-items: center; gap: 0.75rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1rem;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 1rem;
   }
-  .section-label::before {
-    content: '';
-    width: 24px; height: 1px;
-    background: var(--gold);
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--ink);
-    margin-bottom: 3.5rem;
-  }
-  .section-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 3.5rem; }
+  .section-title em { font-style: italic; color: var(--gold); }
 
   /* ── EXPERIENCE ── */
   #experience { background: var(--off-white); }
   .timeline { position: relative; padding-left: 2.5rem; }
   .timeline::before {
-    content: '';
-    position: absolute; left: 0; top: 0; bottom: 0;
-    width: 1px;
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
     background: linear-gradient(to bottom, var(--gold), transparent);
   }
-  .timeline-item {
-    position: relative;
-    margin-bottom: 3.5rem;
-    animation: fadeUp 0.6s ease both;
-  }
+  .timeline-item { position: relative; margin-bottom: 3.5rem; }
   .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2.5rem; top: 6px;
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    background: var(--gold);
-    border: 2px solid var(--white);
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+    content: ''; position: absolute; left: -2.5rem; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%; background: var(--gold);
+    border: 2px solid var(--white); box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
   }
-  .tl-date {
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-  }
-  .tl-role {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.2rem;
-  }
-  .tl-company {
-    font-size: 0.88rem;
-    color: var(--ink-muted);
-    margin-bottom: 1rem;
-    font-style: italic;
-  }
+  .tl-date { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 0.4rem; }
+  .tl-role { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+  .tl-company { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 1rem; font-style: italic; }
   .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .tl-bullets li {
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    line-height: 1.7;
-    padding-left: 1.2rem;
-    position: relative;
-  }
-  .tl-bullets li::before {
-    content: '—';
-    position: absolute; left: 0;
-    color: var(--gold);
-    font-size: 0.7rem;
-    top: 0.15em;
-  }
+  .tl-bullets li { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.7; padding-left: 1.2rem; position: relative; }
+  .tl-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; top: 0.15em; }
 
   /* ── SKILLS ── */
   #skills { background: var(--white); }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
   .skill-card {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    background: var(--off-white); border: 1px solid var(--border); border-radius: 6px;
+    padding: 2.2rem; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
   }
-  .skill-card:hover {
-    border-color: var(--gold);
-    box-shadow: 0 8px 32px rgba(201,168,76,0.12);
-    transform: translateY(-4px);
-  }
-  .skill-card-icon {
-    width: 44px; height: 44px;
-    background: var(--gold-pale);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.2rem;
-    font-size: 1.3rem;
-  }
-  .skill-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-card:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(201,168,76,0.12); transform: translateY(-4px); }
+  .skill-card-icon { width: 48px; height: 48px; background: var(--gold-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; font-size: 1.4rem; }
+  .skill-card-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: 1.2rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; }
   .skill-tag {
-    font-size: 0.75rem;
-    padding: 0.35rem 0.85rem;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--ink-soft);
-    letter-spacing: 0.04em;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    font-size: 0.75rem; padding: 0.38rem 0.9rem; background: var(--white);
+    border: 1px solid var(--border); border-radius: 100px; color: var(--ink-soft);
+    letter-spacing: 0.04em; transition: background 0.2s, color 0.2s, border-color 0.2s; cursor: default;
   }
   .skill-tag:hover { background: var(--gold); color: var(--white); border-color: var(--gold); }
 
   /* ── EDUCATION ── */
   #education { background: var(--off-white); }
-  .edu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-  }
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
   .edu-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
+    background: var(--white); border: 1px solid var(--border); border-radius: 6px;
+    padding: 2rem; position: relative; overflow: hidden;
     transition: box-shadow 0.3s, transform 0.3s;
   }
   .edu-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.35s;
   }
   .edu-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-3px); }
   .edu-card:hover::before { transform: scaleX(1); }
-  .edu-year {
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 0.75rem;
-  }
-  .edu-degree {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.3rem;
-  }
-  .edu-school {
-    font-size: 0.88rem;
-    color: var(--ink-muted);
-    line-height: 1.5;
-  }
+  .edu-year { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 0.75rem; }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+  .edu-school { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.5; }
 
   /* ── PROJECTS ── */
   #projects { background: var(--white); }
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
   .project-card {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: box-shadow 0.3s, transform 0.3s;
-    background: var(--white);
+    border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+    background: var(--white); transition: box-shadow 0.3s, transform 0.3s;
+    display: flex; flex-direction: column;
   }
-  .project-card:hover {
-    box-shadow: 0 12px 40px rgba(201,168,76,0.13);
-    transform: translateY(-5px);
-  }
-  .project-header {
-    background: var(--gold-pale);
+  .project-card:hover { box-shadow: 0 16px 48px rgba(201,168,76,0.15); transform: translateY(-6px); }
+
+  /* Logo header */
+  .project-header--logo {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--border);
     padding: 2rem;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem;
-    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    min-height: 90px;
   }
-  .project-body { padding: 1.5rem 2rem 2rem; }
-  .project-tags { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-  .project-tag {
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    background: var(--gold-pale);
-    padding: 0.2rem 0.7rem;
-    border-radius: 100px;
+  .project-logo {
+    width: 56px; height: 56px;
+    border-radius: 12px;
+    object-fit: contain;
+    background: var(--white);
+    padding: 6px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    flex-shrink: 0;
   }
-  .project-name {
+  .project-logo-fallback {
+    width: 56px; height: 56px; border-radius: 12px;
+    background: var(--gold-pale); border: 1px solid var(--border);
+    align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 1rem; color: var(--gold-dark); flex-shrink: 0;
+  }
+  .project-header-text {}
+  .project-header-name {
     font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.6rem;
+    font-size: 1.15rem; font-weight: 700; color: var(--ink);
+    margin-bottom: 0.15rem;
   }
-  .project-desc {
-    font-size: 0.87rem;
-    color: var(--ink-muted);
-    line-height: 1.7;
+  .project-header-url {
+    font-size: 0.72rem; color: var(--gold-dark); letter-spacing: 0.04em;
+    text-decoration: none;
   }
+  .project-header-url:hover { text-decoration: underline; }
+
+  .project-body { padding: 1.5rem 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; gap: 0.75rem; }
+  .project-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+  .project-tag {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold-dark); background: var(--gold-pale);
+    padding: 0.22rem 0.7rem; border-radius: 100px;
+  }
+  .project-desc { font-size: 0.87rem; color: var(--ink-muted); line-height: 1.75; flex: 1; }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--gold-dark); text-decoration: none;
+    text-transform: uppercase; margin-top: 0.5rem;
+    transition: gap 0.2s, color 0.2s;
+  }
+  .project-link:hover { color: var(--gold); gap: 0.7rem; }
 
   /* ── CONTACT ── */
   #contact { background: var(--ink); color: var(--white); }
   #contact .section-label { color: var(--gold-light); }
   #contact .section-label::before { background: var(--gold-light); }
-  #contact .section-title { color: var(--white); }
-  .contact-grid {
+  #contact .section-title { color: var(--white); margin-bottom: 3rem; }
+  .contact-cards {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 5rem;
-    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
   }
-  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
-  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 8px;
+    padding: 1.8rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 1.1rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .contact-card:hover { border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.05); }
   .contact-icon {
-    width: 42px; height: 42px; flex-shrink: 0;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
   }
-  .contact-item-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 0.2rem;
-  }
-  .contact-item-value {
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.8);
-  }
+  .contact-item-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.3rem; }
+  .contact-item-value { font-size: 0.92rem; color: rgba(255,255,255,0.75); }
   .contact-item-value a { color: inherit; text-decoration: none; }
   .contact-item-value a:hover { color: var(--gold-light); }
-
-  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-  .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-  }
-  .form-input, .form-textarea {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 3px;
-    padding: 0.9rem 1.1rem;
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.92rem;
-    transition: border-color 0.2s, background 0.2s;
-    outline: none;
-    width: 100%;
-  }
-  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
-  .form-input:focus, .form-textarea:focus {
-    border-color: var(--gold);
-    background: rgba(201,168,76,0.05);
-  }
-  .form-textarea { resize: vertical; min-height: 130px; }
+  .contact-cta-row { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 
   /* ── FOOTER ── */
   footer {
-    background: #111;
-    padding: 2rem 5%;
+    background: #111; padding: 2rem 5%;
     display: flex; align-items: center; justify-content: space-between;
     border-top: 1px solid rgba(201,168,76,0.15);
   }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--white);
-  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
   .footer-logo span { color: var(--gold); }
-  .footer-copy {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.06em;
-  }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
   .footer-links { display: flex; gap: 1.5rem; }
-  .footer-links a {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
 
   /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
@@ -680,10 +309,7 @@
     .hero-cta { justify-content: center; }
     .hero-stats { justify-content: center; }
     .photo-frame { width: 260px; height: 320px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .form-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
-    .nav-links { gap: 1.2rem; }
   }
   @media (max-width: 600px) {
     .nav-links { display: none; }
@@ -698,7 +324,6 @@
   <div class="nav-logo">Mamit<span>.</span></div>
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li>
@@ -722,69 +347,23 @@
       <a href="#experience" class="btn-secondary">View Work</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <span class="stat-num">4+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-      <div>
-        <span class="stat-num">5+</span>
-        <span class="stat-label">Companies</span>
-      </div>
-      <div>
-        <span class="stat-num">10+</span>
-        <span class="stat-label">SEO Tools</span>
-      </div>
+      <div><span class="stat-num">4+</span><span class="stat-label">Years Experience</span></div>
+      <div><span class="stat-num">5+</span><span class="stat-label">Companies</span></div>
+      <div><span class="stat-num">10+</span><span class="stat-label">SEO Tools</span></div>
     </div>
   </div>
-
   <div class="hero-image-wrap">
     <div class="photo-frame">
-      <src="mamit.jpeg.png">
-      <div class="photo-placeholder">
-        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="28" cy="20" r="11" stroke="#9A7A2E" stroke-width="2"/>
-          <path d="M6 48c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#9A7A2E" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        Replace with your photo
-      </div>
+      <img src="mamit.jpeg.png" alt="Mamit Pradhan" />
     </div>
   </div>
 </section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="reveal">
-      <div class="hero-eyebrow">Who I Am</div>
-      <h2 class="section-title">About <em>Me</em></h2>
-      <p class="section-sub">A passionate SEO professional with a technical background and a creative approach to digital marketing.</p>
-    </div>
-    <div class="about-grid reveal">
-      <div class="about-text">
-        <p>I'm <strong>Mamit Pradhan</strong>, an SEO Specialist and Digital Marketer based in Kathmandu, Nepal — currently working at <strong>Meta Cloud Solutions Pvt. Ltd</strong> and pursuing my <strong>MSc. in Computer Science</strong> at NCIT.</p>
-        <p>I specialize in transforming websites into organic traffic engines through technical SEO audits, strategic keyword research, and content-driven optimization. My background in UI/UX design gives me a unique edge in understanding the full user journey — from search to conversion.</p>
-        <p>Whether it's climbing rankings, building quality backlinks, or crafting content that converts — I bring data and creativity together to deliver real results.</p>
-      </div>
-      <div class="info-cards">
-        <div class="info-card"><div class="info-card-icon">📍</div><div><div class="info-card-label">Location</div><div class="info-card-val">Hattiban, Lalitpur, Nepal</div></div></div>
-        <div class="info-card"><div class="info-card-icon">📧</div><div><div class="info-card-label">Email</div><div class="info-card-val"><a href="mailto:mamitp34@gmail.com">mamitp34@gmail.com</a></div></div></div>
-        <div class="info-card"><div class="info-card-icon">📞</div><div><div class="info-card-label">Phone</div><div class="info-card-val"><a href="tel:+9779818350020">+977-9818350020</a></div></div></div>
-        <div class="info-card"><div class="info-card-icon">💼</div><div><div class="info-card-label">LinkedIn</div><div class="info-card-val"><a href="https://www.linkedin.com/in/mamit-pradhan-68294a393" target="_blank" rel="noopener">mamit-pradhan-68294a393</a></div></div></div>
-        <div class="info-card"><div class="info-card-icon">🎓</div><div><div class="info-card-label">Current Study</div><div class="info-card-val">MSc. Computer Science, NCIT</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-label">Career Journey</div>
   <h2 class="section-title">Professional <em>Experience</em></h2>
-
   <div class="timeline">
-
     <div class="timeline-item">
       <div class="tl-date">July 2025 — Present</div>
       <div class="tl-role">SEO Analyst</div>
@@ -796,7 +375,6 @@
         <li>Research competitor trends and design optimized website elements</li>
       </ul>
     </div>
-
     <div class="timeline-item">
       <div class="tl-date">Jun 2024 — Jun 2025</div>
       <div class="tl-role">Associate Digital Marketing</div>
@@ -808,7 +386,6 @@
         <li>Analyzed campaigns with Google Analytics and researched competitor strategies</li>
       </ul>
     </div>
-
     <div class="timeline-item">
       <div class="tl-date">Dec 2023 — May 2024</div>
       <div class="tl-role">Digital Marketer</div>
@@ -821,7 +398,6 @@
         <li>Email Marketing Analytics and Reporting</li>
       </ul>
     </div>
-
     <div class="timeline-item">
       <div class="tl-date">Jun 2023 — Nov 2023</div>
       <div class="tl-role">UI/UX Designer Intern</div>
@@ -832,7 +408,6 @@
         <li>Created high-fidelity designs and maintained design systems</li>
       </ul>
     </div>
-
     <div class="timeline-item">
       <div class="tl-date">Jul 2021 — Nov 2021</div>
       <div class="tl-role">Digital Marketing Intern</div>
@@ -843,7 +418,6 @@
         <li>Created high-fidelity designs and maintained design systems</li>
       </ul>
     </div>
-
   </div>
 </section>
 
@@ -851,7 +425,6 @@
 <section id="skills">
   <div class="section-label">Expertise</div>
   <h2 class="section-title">Core <em>Skills</em></h2>
-
   <div class="skills-grid">
     <div class="skill-card">
       <div class="skill-card-icon">🔍</div>
@@ -868,7 +441,6 @@
         <span class="skill-tag">Social Media Marketing</span>
       </div>
     </div>
-
     <div class="skill-card">
       <div class="skill-card-icon">🛠️</div>
       <div class="skill-card-title">Tools & Platforms</div>
@@ -891,7 +463,6 @@
 <section id="education">
   <div class="section-label">Academic Background</div>
   <h2 class="section-title">My <em>Education</em></h2>
-
   <div class="edu-grid">
     <div class="edu-card">
       <div class="edu-year">2024 — Present</div>
@@ -920,69 +491,80 @@
 <section id="projects">
   <div class="section-label">Portfolio</div>
   <h2 class="section-title">Featured <em>Projects</em></h2>
-
   <div class="projects-grid">
 
     <div class="project-card">
-      <div class="project-header project-header--logo">
-        <img src="https://tivazo.com/favicon.ico" alt="Tivazo logo" class="project-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="project-header--logo">
+        <img src="tivazo logo.png" alt="Tivazo" class="project-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <div class="project-logo-fallback" style="display:none">TZ</div>
+        <div class="project-header-text">
+          <div class="project-header-name">Tivazo</div>
+          <a href="https://tivazo.com/" target="_blank" class="project-header-url">tivazo.com ↗</a>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">SEO</span>
           <span class="project-tag">Digital Marketing</span>
         </div>
-        <div class="project-name">Tivazo</div>
         <p class="project-desc">Optimized SEO strategies to boost organic traffic and rankings. Conducted keyword research, implemented on-page/off-page techniques and analyzed campaigns with Google Analytics.</p>
         <a href="https://tivazo.com/" target="_blank" class="project-link">Visit Site →</a>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-header project-header--logo">
-        <img src="https://danfe.io/wp-content/uploads/2022/07/favicon.png" alt="Danfe logo" class="project-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="project-header--logo">
+        <img src="danfe logo.png" alt="Danfe" class="project-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <div class="project-logo-fallback" style="display:none">DF</div>
+        <div class="project-header-text">
+          <div class="project-header-name">Danfe</div>
+          <a href="https://danfe.io/" target="_blank" class="project-header-url">danfe.io ↗</a>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">SEO</span>
           <span class="project-tag">Content Strategy</span>
         </div>
-        <div class="project-name">Danfe</div>
         <p class="project-desc">All-in-one onboarding and LMS platform. Developed content strategy, executed technical SEO audits and implemented on-page blog optimization to drive qualified traffic.</p>
         <a href="https://danfe.io/" target="_blank" class="project-link">Visit Site →</a>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-header project-header--logo">
-        <img src="https://quickconnect.biz/wp-content/uploads/2025/12/cropped-faviconNew-270x270.png" alt="QuickConnect logo" class="project-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="project-header--logo">
+        <img src="quickconnect logo.png" alt="QuickConnect" class="project-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <div class="project-logo-fallback" style="display:none">QC</div>
+        <div class="project-header-text">
+          <div class="project-header-name">QuickConnect</div>
+          <a href="https://quickconnect.biz/" target="_blank" class="project-header-url">quickconnect.biz ↗</a>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">SEO</span>
           <span class="project-tag">Off-Page SEO</span>
         </div>
-        <div class="project-name">QuickConnect</div>
         <p class="project-desc">AI-powered customer support & automation tool. Built backlink profiles, executed off-page SEO and monitored performance using SEMrush, Ahrefs and Search Console.</p>
         <a href="https://quickconnect.biz/" target="_blank" class="project-link">Visit Site →</a>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-header project-header--logo">
-        <img src="https://diamondknitland.com/wp-content/uploads/2025/10/cropped-Diamond-Knitland-Logo-270x270.jpeg" alt="Diamond Knitland logo" class="project-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="project-header--logo">
+        <img src="diamond knitlandlogo.png" alt="Diamond Knitland" class="project-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <div class="project-logo-fallback" style="display:none">DK</div>
+        <div class="project-header-text">
+          <div class="project-header-name">Diamond Knitland</div>
+          <a href="https://diamondknitland.com/" target="_blank" class="project-header-url">diamondknitland.com ↗</a>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">Digital Marketing</span>
           <span class="project-tag">Email Marketing</span>
         </div>
-        <div class="project-name">Diamond Knitland</div>
-        <p class="project-desc">Premium cashmere knitwear manufacturer from Nepal. Developed digital marketing strategies, content for social media and SEO to boost organic search visibility globally.</p>
+        <p class="project-desc">Premium cashmere knitwear manufacturer from Nepal. Developed digital marketing strategies, social media content and SEO to boost organic search visibility globally.</p>
         <a href="https://diamondknitland.com/" target="_blank" class="project-link">Visit Site →</a>
       </div>
     </div>
@@ -994,60 +576,39 @@
 <section id="contact">
   <div class="section-label">Let's Connect</div>
   <h2 class="section-title">Get In <em style="color:var(--gold-light)">Touch</em></h2>
-
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <div class="contact-item-label">Phone</div>
-          <div class="contact-item-value">+977-9818350020</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <div class="contact-item-label">Email</div>
-          <div class="contact-item-value"><a href="mailto:mamitp34@gmail.com">mamitp34@gmail.com</a></div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="contact-item-label">Location</div>
-          <div class="contact-item-value">Hattiban, Lalitpur, Nepal</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">💼</div>
-        <div>
-          <div class="contact-item-label">LinkedIn</div>
-          <div class="contact-item-value"><a href="http://lnkiy.in/Mamit_Pradhan" target="_blank">lnkiy.in/Mamit_Pradhan</a></div>
-        </div>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-item-label">Phone</div>
+        <div class="contact-item-value">+977-9818350020</div>
       </div>
     </div>
-
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-field">
-          <label class="form-label">Full Name</label>
-          <input class="form-input" type="text" placeholder="Your name" required/>
-        </div>
-        <div class="form-field">
-          <label class="form-label">Email</label>
-          <input class="form-input" type="email" placeholder="your@email.com" required/>
-        </div>
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value"><a href="mailto:mamitp34@gmail.com">mamitp34@gmail.com</a></div>
       </div>
-      <div class="form-field">
-        <label class="form-label">Subject</label>
-        <input class="form-input" type="text" placeholder="How can I help you?"/>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-item-label">Location</div>
+        <div class="contact-item-value">Hattiban, Lalitpur, Nepal</div>
       </div>
-      <div class="form-field">
-        <label class="form-label">Message</label>
-        <textarea class="form-textarea" placeholder="Write your message here…" required></textarea>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">💼</div>
+      <div>
+        <div class="contact-item-label">LinkedIn</div>
+        <div class="contact-item-value"><a href="http://lnkiy.in/Mamit_Pradhan" target="_blank">lnkiy.in/Mamit_Pradhan</a></div>
       </div>
-      <button type="submit" class="btn-primary" style="align-self:flex-start">Send Message</button>
-    </form>
+    </div>
+  </div>
+  <div class="contact-cta-row">
+    <a href="mailto:mamitp34@gmail.com" class="btn-primary">Send Me an Email</a>
+    <a href="http://lnkiy.in/Mamit_Pradhan" target="_blank" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.2)">Connect on LinkedIn</a>
   </div>
 </section>
 
@@ -1057,40 +618,29 @@
   <div class="footer-copy">© 2025 Mamit Pradhan. All rights reserved.</div>
   <div class="footer-links">
     <a href="#hero">Home</a>
-    <a href="#about">About</a>
     <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
 
 <script>
-  // Navbar scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
   });
-
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
+        e.target.style.opacity = '1';
         e.target.style.animation = 'fadeUp 0.65s ease both';
         observer.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.timeline-item, .skill-card, .edu-card, .project-card').forEach(el => {
+  document.querySelectorAll('.timeline-item, .skill-card, .edu-card, .project-card, .contact-card').forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
   });
-
-  // Contact form
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.textContent = '✓ Message Sent!';
-    btn.style.background = '#4CAF50';
-    setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; e.target.reset(); }, 3000);
-  }
 </script>
 </body>
 </html>
